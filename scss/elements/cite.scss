@@ -1,0 +1,43 @@
+/* Bibliography ieee style
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/ 
+
+/* CONFIG */
+$cite-ref-color: $primary !default;
+
+
+/* MODIFIER */
+a.ref {
+    vertical-align: top;
+    font-size: xx-small;
+    &::before{
+        vertical-align: top;
+        font-size: xx-small;
+        content: "[";
+    }
+    &::after{
+        vertical-align: top;
+        font-size: xx-small;
+        content: "]";
+    }
+}
+
+.bibliography {
+    &::before{
+        display: block;
+        font-size: larger;
+        content: "Bibliography";
+    }
+    counter-reset: ccite;
+    cite {
+        font-size: small;
+        font-style: normal;
+        &::before{
+            vertical-align: top;
+            font-size: xx-small;
+            color: $cite-ref-color;
+            counter-increment: ccite;
+            content: "[" counter(ccite) "] ";
+        }
+    }
+}

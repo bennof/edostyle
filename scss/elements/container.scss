@@ -1,0 +1,23 @@
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/ 
+
+/* CONFIG */
+
+
+$fluid-gap-width: 5px;
+
+/* MODIFIER */
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    &.is-fluid{
+        max-width: none !important;
+        padding-left: $fluid-gap-width;
+        padding-right: $fluid-gap-width;
+        width: 100%;
+    }
+}

@@ -1,0 +1,72 @@
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/ 
+
+/* CONFIG */
+
+
+// Language Variables
+$is-german: true!default; /* not working */
+@if $is-german {
+    $fig-code-name: "Code "  !default;
+    $fig-quote-name: "Zitat " !default;
+    $fig-figure-name: "Abbildung " !default;
+    $fig-media-name: "Medien " !default;
+    $fig-table-name: "Tabelle "  !default;
+}
+
+$fig-code-name: "Listing "  !default;
+$fig-quote-name: "Quote " !default;
+$fig-figure-name: "Figure " !default;
+$fig-media-name: "Media " !default;
+$fig-table-name: "Table "  !default;
+
+$fig-caption-padding: 2em;
+
+/* MODIFIER */
+body {
+    counter-reset: ctable cquote ccode cimage cmedia;
+}
+
+figure {
+    margin: 0px;
+
+    figcaption {
+        text-align: left;
+        font-size: smaller;
+        &::before {
+            font-weight: bold; 
+        }
+        padding-bottom: $fig-caption-padding;
+    }
+
+    figcaption.img:before,
+    img + figcaption:before{
+        counter-increment: cimage;
+        content: $fig-figure-name " " counter(cimage) ": ";
+    }
+    
+    figcaption.quote:before,
+    blockquote + figcaption:before{
+        counter-increment: cquote;
+        content: $fig-quote-name " " counter(cquote) ": ";
+    }
+    
+    figcaption.code:before,
+    pre + figcaption:before{
+        counter-increment: ccode;
+        content: $fig-code-name " " counter(ccode) ": ";
+    }
+    
+    figcaption.media:before,
+    iframe + figcaption:before{
+        counter-increment: cmedia;
+        content: $fig-media-name " " counter(cmedia) ": ";
+    }
+
+    figcaption.table:before,
+    table + figcaption:before{
+        counter-increment: ctable;
+        content: $fig-table-name " " counter(ctable) ": ";
+    }
+}

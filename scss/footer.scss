@@ -1,0 +1,15 @@
+$footer_font_size: 12pt !default;
+$footer_font_weight: 500 !default;
+$footer_color: #35393C !default;
+$footer_color_bg: #f2f2f2 !default;
+
+.footer {
+    padding: 10px 0;
+    font-size: #{$footer_font_size *0.8};
+    font-weight: $footer_font_weight;
+    color: lighten($footer_color, $amount: 20);
+    background-color: $footer_color_bg;
+    * {
+        text-decoration: none;
+    }
+}

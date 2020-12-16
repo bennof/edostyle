@@ -1,0 +1,52 @@
+/* Bibliography ieee style
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/ 
+
+/* CONFIG */
+$button-color: #ededed !default;
+$button-primary-color: #c00000 !default;
+$button-secondary-color: #35393C !default;
+
+$font-color: #35393C !default;
+$font-color-inverse: #fff !default;
+
+
+/* MODIFIER */
+button {
+    color: $font-color;
+    background: $button-color;
+    border-radius: 0.3em;
+    transition: all .25s;
+    padding: 0.7em 2.5em;
+    border-radius: .3em;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid $button-color;
+    margin-right: 1rem;
+    text-decoration: none!important;
+
+    &:hover{
+        background-color: transparent;
+    }
+    
+    &.is-primary{
+        background-color: $button-primary-color;
+        color: $font-color-inverse;
+        border: 1px solid $button-primary-color;
+        &:hover{
+            background-color: transparent;
+            color: $font-color;
+        }
+    }
+    &.is-secondary{
+        background-color: $button-secondary-color;
+        color: $font-color-inverse;
+        border: 1px solid $button-secondary-color;
+        &:hover{
+            background-color: transparent;
+            color: $font-color;
+        }
+    }
+}

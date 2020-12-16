@@ -1,0 +1,149 @@
+$header_bg_color: $background !default;
+$header_bg_color_hl: #222 !default;
+$header_color: #eee !default;
+$header_color_hl: $primary !default;
+
+$header_height: 40px !default;
+$header_height_inner: #{$header_height - 10px} !default;
+
+$header_font_size: 12pt !default;
+$header_font_weight: 300 !default;
+
+.header {
+    position: fixed;
+    background-color: $header_bg_color;
+    top: 0px;
+    vertical-align: middle;
+    line-height: $header_height;
+    height: $header_height;
+    left: 0px;
+    right: 0px;
+    z-index:500;
+    font-size: $header_font_size;
+    border-bottom: 1px solid $border;
+
+    transition: all .25s;
+
+    .navbar {
+        width: 100%;
+        height:100%;
+        top: 0;
+        position: absolute;
+    }
+
+    & h1,
+    &  > * {
+        display: inline-block;
+        vertical-align: middle;
+        height: $header_height;
+        line-height: $header_height;
+        margin: 0px;
+        font-size: $header_font_size;
+    }
+
+    &  .logo {
+        margin-left: 10px;
+        float: left;
+        color: $header_color_hl;
+        transition: all .25s;
+
+        &:hover {
+            color: lighten($header_color_hl, 20);
+        }
+    }
+
+    & label.menu {
+        float: right;
+        cursor: pointer;
+        color: $header_color_hl;
+        margin-right: 10px;
+        vertical-align: super;
+    }
+
+    & input[type=checkbox].menu {
+        visibility: hidden;
+    }
+
+    & input[type=checkbox].menu:checked ~ ul.menu {
+        display: block;
+    }
+
+    & ul.menu {
+        transition: all .25s;   
+        height: auto;
+        display: none;
+        position: fixed;
+        top: $header_height;
+        padding: 0;
+        max-height: calc(100% - #{$header_height});
+        max-width: 100%;
+        margin: 0;
+        min-width: 150px;
+        overflow: auto;
+        z-index:800;
+        background: rgba($header_bg_color, 1.0);
+        right: 0px;
+        border-radius: 2px;
+        border-left: 1px solid  $border;
+    
+        & > li {
+            display: block;
+            list-style-type: none;
+            line-height: 1.5rem;
+
+            &::before{
+                content: none;
+            }
+
+            form.search, a {
+                display: block;
+                padding: 5px;
+                padding-left: 20px;
+                color: $font-color;
+                text-decoration: none;
+                width: 100%;
+                background: none;
+
+                transition: all .25s;
+
+                button,
+                input{
+                    border: none;
+                    background: none;
+                    height: $header_height_inner;
+                    padding: 0;
+                    margin :0;
+                    outline: 0;
+                    font-size: $header_font_size;
+                    color: $header_color;
+                }
+                
+                input[type=text]{
+                    border-bottom: 1px solid $header_color;
+                }
+            }
+            
+            a:hover {
+                color: $header_color_hl;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    img, svg {
+        stroke: $header_color_hl;
+        height: $header_height_inner;
+        vertical-align: middle;
+        &:hover {
+            stroke: lighten($header_color_hl, 20);
+        }
+    }
+
+    &::after {
+        clear: both;
+    }
+}
+
+.has-menubar {
+    margin-top: $header_height;
+}

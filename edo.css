@@ -1,0 +1,672 @@
+/* 
+** edo style
+** Copyright 2020 Benjamin 'Benno' Falkner (MIT License)
+*/
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/*#18a9f1*/
+/* IMPORTS */
+/* MODIFIER */
+html, body {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #35393C;
+  min-height: 1vh;
+  min-width: 1vw;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  line-height: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 3.0rem;
+  line-height: 1.2;
+  letter-spacing: -.1rem;
+}
+
+h2 {
+  font-size: 2.0rem;
+  line-height: 1.25;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: -.1rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  font-weight: 200;
+}
+
+h5 {
+  font-size: 1rem;
+  line-height: 1.3;
+  font-variant: small-caps;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+h1 + h2 {
+  margin-top: -1.3rem;
+}
+
+.is-primary {
+  color: #C00000;
+}
+
+.is-secondary {
+  color: #35393C;
+}
+
+a {
+  color: #C00000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #111213;
+}
+
+code {
+  background-color: #ededed;
+  color: #292c2e;
+  font-size: 0.9rem;
+  font-weight: normal;
+  padding: 0.25em 0.5em;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #c7c7c7;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: baseline;
+}
+
+small {
+  font-size: 0.8em;
+}
+
+span {
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+strong {
+  color: #35393C;
+  font-weight: bold;
+}
+
+blockquote {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+blockquote footer {
+  float: right;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-size: 0.8em;
+}
+
+blockquote::after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+fieldset {
+  border: none;
+}
+
+pre {
+  background-color: #ededed;
+  color: #35393C;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  padding: 1rem 1rem;
+  white-space: pre;
+  word-wrap: normal;
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  background-color: transparent;
+  color: currentColor;
+  font-size: 1em;
+  padding: 0;
+}
+
+table {
+  margin: 0.5rem auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  vertical-align: top;
+  border-bottom: 1px solid #c7c7c7;
+  padding: 0.2rem 0.5rem;
+}
+
+table td:not([align]),
+table th:not([align]) {
+  text-align: inherit;
+}
+
+table tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+table th {
+  color: #35393C;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
+  color: #C00000;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* MODIFIER */
+.columns {
+  display: flex;
+  margin-left: -.5rem;
+  margin-right: -.5rem;
+  margin-top: -.5rem;
+}
+
+.columns .column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: .5rem;
+}
+
+.columns .column.is-1 {
+  flex: none;
+  width: 8.33333%;
+}
+
+.columns .column.is-2 {
+  flex: none;
+  width: 16.66667%;
+}
+
+.columns .column.is-3 {
+  flex: none;
+  width: 25%;
+}
+
+.columns .column.is-4 {
+  flex: none;
+  width: 33.33333%;
+}
+
+.columns .column.is-5 {
+  flex: none;
+  width: 41.66667%;
+}
+
+.columns .column.is-6 {
+  flex: none;
+  width: 50%;
+}
+
+.columns .column.is-7 {
+  flex: none;
+  width: 58.33333%;
+}
+
+.columns .column.is-8 {
+  flex: none;
+  width: 66.66667%;
+}
+
+.columns .column.is-9 {
+  flex: none;
+  width: 75%;
+}
+
+.columns .column.is-10 {
+  flex: none;
+  width: 83.33333%;
+}
+
+.columns .column.is-11 {
+  flex: none;
+  width: 91.66667%;
+}
+
+.columns .column.is-12 {
+  flex: none;
+  width: 100%;
+}
+
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* IMPORTS */
+/* Bibliography ieee style
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* MODIFIER */
+button {
+  color: #35393C;
+  background: #ededed;
+  border-radius: 0.3em;
+  transition: all .25s;
+  padding: 0.7em 2.5em;
+  border-radius: .3em;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid #ededed;
+  margin-right: 1rem;
+  text-decoration: none !important;
+}
+
+button:hover {
+  background-color: transparent;
+}
+
+button.is-primary {
+  background-color: #c00000;
+  color: #fff;
+  border: 1px solid #c00000;
+}
+
+button.is-primary:hover {
+  background-color: transparent;
+  color: #35393C;
+}
+
+button.is-secondary {
+  background-color: #35393C;
+  color: #fff;
+  border: 1px solid #35393C;
+}
+
+button.is-secondary:hover {
+  background-color: transparent;
+  color: #35393C;
+}
+
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* MODIFIER */
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  max-width: 100%;
+}
+
+.container.is-fluid {
+  max-width: none !important;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100%;
+}
+
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* MODIFIER */
+.content {
+  max-width: 800px;
+  padding: 10px;
+  margin: 5px auto;
+}
+
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* not working */
+/* MODIFIER */
+body {
+  counter-reset: ctable cquote ccode cimage cmedia;
+}
+
+figure {
+  margin: 0px;
+}
+
+figure figcaption {
+  text-align: left;
+  font-size: smaller;
+  padding-bottom: 2em;
+}
+
+figure figcaption::before {
+  font-weight: bold;
+}
+
+figure figcaption.img:before,
+figure img + figcaption:before {
+  counter-increment: cimage;
+  content: "Figure " " " counter(cimage) ": ";
+}
+
+figure figcaption.quote:before,
+figure blockquote + figcaption:before {
+  counter-increment: cquote;
+  content: "Quote " " " counter(cquote) ": ";
+}
+
+figure figcaption.code:before,
+figure pre + figcaption:before {
+  counter-increment: ccode;
+  content: "Listing " " " counter(ccode) ": ";
+}
+
+figure figcaption.media:before,
+figure iframe + figcaption:before {
+  counter-increment: cmedia;
+  content: "Media " " " counter(cmedia) ": ";
+}
+
+figure figcaption.table:before,
+figure table + figcaption:before {
+  counter-increment: ctable;
+  content: "Table " " " counter(ctable) ": ";
+}
+
+/* Bibliography ieee style
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* MODIFIER */
+a.ref {
+  vertical-align: top;
+  font-size: xx-small;
+}
+
+a.ref::before {
+  vertical-align: top;
+  font-size: xx-small;
+  content: "[";
+}
+
+a.ref::after {
+  vertical-align: top;
+  font-size: xx-small;
+  content: "]";
+}
+
+.bibliography {
+  counter-reset: ccite;
+}
+
+.bibliography::before {
+  display: block;
+  font-size: larger;
+  content: "Bibliography";
+}
+
+.bibliography cite {
+  font-size: small;
+  font-style: normal;
+}
+
+.bibliography cite::before {
+  vertical-align: top;
+  font-size: xx-small;
+  color: #C00000;
+  counter-increment: ccite;
+  content: "[" counter(ccite) "] ";
+}
+
+.header {
+  position: fixed;
+  background-color: #fff;
+  top: 0px;
+  vertical-align: middle;
+  line-height: 40px;
+  height: 40px;
+  left: 0px;
+  right: 0px;
+  z-index: 500;
+  font-size: 12pt;
+  border-bottom: 1px solid #c7c7c7;
+  transition: all .25s;
+}
+
+.header .navbar {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+}
+
+.header h1,
+.header > * {
+  display: inline-block;
+  vertical-align: middle;
+  height: 40px;
+  line-height: 40px;
+  margin: 0px;
+  font-size: 12pt;
+}
+
+.header .logo {
+  margin-left: 10px;
+  float: left;
+  color: #C00000;
+  transition: all .25s;
+}
+
+.header .logo:hover {
+  color: #ff2727;
+}
+
+.header label.menu {
+  float: right;
+  cursor: pointer;
+  color: #C00000;
+  margin-right: 10px;
+  vertical-align: super;
+}
+
+.header input[type=checkbox].menu {
+  visibility: hidden;
+}
+
+.header input[type=checkbox].menu:checked ~ ul.menu {
+  display: block;
+}
+
+.header ul.menu {
+  transition: all .25s;
+  height: auto;
+  display: none;
+  position: fixed;
+  top: 40px;
+  padding: 0;
+  max-height: calc(100% - 40px);
+  max-width: 100%;
+  margin: 0;
+  min-width: 150px;
+  overflow: auto;
+  z-index: 800;
+  background: white;
+  right: 0px;
+  border-radius: 2px;
+  border-left: 1px solid #c7c7c7;
+}
+
+.header ul.menu > li {
+  display: block;
+  list-style-type: none;
+  line-height: 1.5rem;
+}
+
+.header ul.menu > li::before {
+  content: none;
+}
+
+.header ul.menu > li form.search, .header ul.menu > li a {
+  display: block;
+  padding: 5px;
+  padding-left: 20px;
+  color: #35393C;
+  text-decoration: none;
+  width: 100%;
+  background: none;
+  transition: all .25s;
+}
+
+.header ul.menu > li form.search button,
+.header ul.menu > li form.search input, .header ul.menu > li a button,
+.header ul.menu > li a input {
+  border: none;
+  background: none;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  font-size: 12pt;
+  color: #eee;
+}
+
+.header ul.menu > li form.search input[type=text], .header ul.menu > li a input[type=text] {
+  border-bottom: 1px solid #eee;
+}
+
+.header ul.menu > li a:hover {
+  color: #C00000;
+  text-decoration: underline;
+}
+
+.header img, .header svg {
+  stroke: #C00000;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.header img:hover, .header svg:hover {
+  stroke: #ff2727;
+}
+
+.header::after {
+  clear: both;
+}
+
+.has-menubar {
+  margin-top: 40px;
+}
+
+.footer {
+  padding: 10px 0;
+  font-size: 9.6pt;
+  font-weight: 500;
+  color: #656c72;
+  background-color: #f2f2f2;
+}
+
+.footer * {
+  text-decoration: none;
+}
+
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+/* IMPORTS */
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/
+/* CONFIG */
+.hero {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  max-width: 100%;
+  background-color: #ededed;
+  /*background-image: url(attr(bg-image));*/
+  background-position: center;
+  background-size: cover;
+}
+
+.hero.is-white {
+  background-color: #fff;
+}
+
+.hero.has-free-head {
+  padding-top: 4rem;
+}
+
+.hero.has-height-33 {
+  min-height: 33vh;
+}
+
+.hero.has-height-50 {
+  min-height: 50vh;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVkby5zY3NzIiwiZWRvLmNzcyIsInNjc3MvYmFzZS5zY3NzIiwic2Nzcy9ncmlkLnNjc3MiLCJzY3NzL2VsZW1lbnRzL2FsbC5zY3NzIiwic2Nzcy9lbGVtZW50cy9idXR0b24uc2NzcyIsInNjc3MvZWxlbWVudHMvY29udGFpbmVyLnNjc3MiLCJzY3NzL2VsZW1lbnRzL2NvbnRlbnQuc2NzcyIsInNjc3MvZWxlbWVudHMvZmlndXJlLnNjc3MiLCJzY3NzL2VsZW1lbnRzL2NpdGUuc2NzcyIsInNjc3MvbmF2YmFyLnNjc3MiLCJzY3NzL2Zvb3Rlci5zY3NzIiwic2Nzcy9jb21wb25lbnRzL2FsbC5zY3NzIiwic2Nzcy9jb21wb25lbnRzL2hlcm8uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7O0NDR0M7QUNIRDs7Q0RNQztBQ0ZELFdBQUE7QUFZK0IsVUFBQTtBQXdDL0IsWUFBQTtBQUVBLGFBQUE7QUFDQTtFQUNJLFNBQVM7RUFDVCxzQkFBc0I7RUFDdEIsZUFoRFk7RUFpRFosd0lBbkRvSTtFQW9EcEksY0FyRGdCO0VBc0RoQixlQUFlO0VBQ2YsY0FBYztFQUNkLGtDQUFrQztFQUNsQyxtQ0FBbUM7RUFDbkMsa0NBQWtDO0VBQ2xDLDhCQUFzQjtLQUF0QiwyQkFBc0I7VUFBdEIsc0JBQXNCO0VBQ3RCLG1CQUFtQjtBRC9DdkI7O0FDa0RBO0VBQ0ksYUFBYTtFQUNiLHFCQUFxQjtFQUNyQixnQkFBZ0I7QUQvQ3BCOztBQ2dEQTtFQUFLLGlCQUFpQjtFQUFFLGdCQUFnQjtFQUFHLHNCQUFzQjtBRDFDakU7O0FDMkNBO0VBQUssaUJBQWlCO0VBQUUsaUJBQWlCO0VBQUUsZ0JBQWdCO0FEckMzRDs7QUNzQ0E7RUFBSyxpQkFBaUI7RUFBRSxnQkFBZ0I7RUFBRyxzQkFBc0I7QURoQ2pFOztBQ2lDQTtFQUFLLGlCQUFpQjtFQUFFLGdCQUFnQjtFQUFFLGdCQUFnQjtBRDNCMUQ7O0FDNEJBO0VBQUssZUFBZTtFQUFFLGdCQUFnQjtFQUFFLHdC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 */

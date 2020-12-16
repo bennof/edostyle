@@ -1,0 +1,14 @@
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/ 
+
+/* CONFIG */
+$full-width: 800px !default;
+
+/* MODIFIER */
+.content {
+    max-width: $full-width;
+    padding: 10px;
+    margin: 5px auto;
+    
+}

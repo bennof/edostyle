@@ -1,0 +1,39 @@
+/* 
+** Copyright 2020 Benjamin 'Benno' Falkner
+*/ 
+
+/* CONFIG */ 
+$hero-color: #ededed !default;
+$hero-primary-color: #c00000 !default;
+$hero-secondary-color: #35393C !default;
+
+$font-color: #35393C !default;
+$font-color-inverse: #fff !default;
+
+.hero {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    background-color: $hero-color;
+    /*background-image: url(attr(bg-image));*/
+    background-position: center;
+    background-size: cover;
+
+    &.is-white {
+        background-color: #fff;
+    }
+
+    &.has-free-head{
+        padding-top: 4rem;
+    }
+
+    &.has-height-33 {
+        min-height: 33vh;
+    }
+
+    &.has-height-50 {
+        min-height: 50vh;
+    }
+}
