@@ -4,15 +4,17 @@
 
 /* CONFIG */
 $button-color: #ededed !default;
-$button-primary-color: #c00000 !default;
-$button-secondary-color: #35393C !default;
+$button-primary-color: #25c42d !default;
+$button-secondary-color: #0f61a0 !default;
 
 $font-color: #35393C !default;
 $font-color-inverse: #fff !default;
 
 
 /* MODIFIER */
+.button,
 button {
+    display: inline-block;
     color: $font-color;
     background: $button-color;
     border-radius: 0.3em;

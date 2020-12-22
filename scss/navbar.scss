@@ -9,6 +9,8 @@ $header_height_inner: #{$header_height - 10px} !default;
 $header_font_size: 12pt !default;
 $header_font_weight: 300 !default;
 
+$navbar-width: $full-width !default;
+
 .header {
     position: fixed;
     background-color: $header_bg_color;
@@ -17,23 +19,33 @@ $header_font_weight: 300 !default;
     line-height: $header_height;
     height: $header_height;
     left: 0px;
-    right: 0px;
+    width: 100vw;
     z-index:500;
     font-size: $header_font_size;
     border-bottom: 1px solid $border;
 
     transition: all .25s;
 
+    .admin-bar &,
+    #wpadminbar ~ &{
+        top: 32px;
+    }
+
     .navbar {
         width: 100%;
         height:100%;
         top: 0;
-        position: absolute;
+        position: relative;
+    }
+
+    .navbar-center{
+        max-width: $navbar-width;
+        margin: 0px auto;
     }
 
     & h1,
     &  > * {
-        display: inline-block;
+        display: block;
         vertical-align: middle;
         height: $header_height;
         line-height: $header_height;
@@ -42,7 +54,7 @@ $header_font_weight: 300 !default;
     }
 
     &  .logo {
-        margin-left: 10px;
+        margin-left: 5px;
         float: left;
         color: $header_color_hl;
         transition: all .25s;
@@ -65,17 +77,17 @@ $header_font_weight: 300 !default;
     }
 
     & input[type=checkbox].menu:checked ~ ul.menu {
-        display: block;
+        display: inline-block;
     }
 
     & ul.menu {
         transition: all .25s;   
         height: auto;
         display: none;
-        position: fixed;
+        position: absolute;
         top: $header_height;
         padding: 0;
-        max-height: calc(100% - #{$header_height});
+        /*max-height: calc(100% - #{$header_height});*/
         max-width: 100%;
         margin: 0;
         min-width: 150px;
@@ -97,11 +109,10 @@ $header_font_weight: 300 !default;
 
             form.search, a {
                 display: block;
-                padding: 5px;
-                padding-left: 20px;
+                padding:  5px 0px 5px 20px;
                 color: $font-color;
                 text-decoration: none;
-                width: 100%;
+                /*width: 100%;*/
                 background: none;
 
                 transition: all .25s;
@@ -127,6 +138,43 @@ $header_font_weight: 300 !default;
                 color: $header_color_hl;
                 text-decoration: underline;
             }
+
+            &.menu-item-has-children > a::after {
+                content: '';
+                position: relative;
+                top: 0.5rem;
+                width: 0; 
+                height: 0; 
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid $primary;
+                border-bottom: 5px solid transparent;
+            }
+
+            &.menu-item-has-children:hover > a::after {
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid $primary;
+                top: -0.6rem;
+            }
+
+
+            ul {
+                display: none;
+                padding-left: 10px;
+                & > li {
+                    display: block;
+                    list-style-type: none;
+                    line-height: 1.5rem;
+                    &::before{
+                        content: none;
+                    }
+                }
+                
+            }
+
+            &:hover ul {
+                display: block;
+            }
         }
     }
 
@@ -145,5 +193,9 @@ $header_font_weight: 300 !default;
 }
 
 .has-menubar {
+    margin-top: $header_height;
+}
+
+.admin-bar.has-menubar {
     margin-top: $header_height;
 }

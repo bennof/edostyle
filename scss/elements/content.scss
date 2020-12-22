@@ -3,12 +3,15 @@
 */ 
 
 /* CONFIG */
-$full-width: 800px !default;
+$full-width: 980px !default;
 
 /* MODIFIER */
 .content {
     max-width: $full-width;
-    padding: 10px;
-    margin: 5px auto;
-    
+    padding: 0px 0px 10px;
+    margin: 0px auto 5px;
+
+    p, h1,h2,h3,h4,h5,h6 {
+        padding: 0 0.5rem;
+    }
 }

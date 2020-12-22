@@ -1,0 +1,46 @@
+
+$border-radius: 3px !default;
+$primary: #25c42d !default;
+$secondary: #0f61a0 !default;
+$color-error: #6b1616 !default; 
+$color-warning: #f5d834 !default; 
+$color-info: #0f61a0 !default; 
+$color-success: #25c42d !default;
+
+div.box{
+    border-radius: $border-radius;
+    width: 100%;
+    padding: 5px;
+    border-left: $font-color;
+    background-color: lighten($font-color,0.5);
+
+    &.is-primary {
+        border-left: $primary;
+        background-color: lighten($primary,0.5);
+    }
+
+    &.is-secondary {
+        border-left: $secondary;
+        background-color: lighten($secondary,0.5);
+    }
+
+    &.is-error {
+        border-left: $color-error;
+        background-color: lighten($color-error,0.5);
+    }
+
+    &.is-warning {
+        border-left: $color-warning;
+        background-color: lighten($color-warning,0.5);
+    }
+
+    &.is-info {
+        border-left: $color-info;
+        background-color: lighten($color-info,0.5);
+    }
+
+    &.is-success {
+        border-left: $color-success;
+        background-color: lighten($color-success,0.5);
+    }
+}

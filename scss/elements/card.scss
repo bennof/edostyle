@@ -1,0 +1,9 @@
+$border-radius: 3px !default;
+$primary: #25c42d !default;
+$secondary: #0f61a0 !default;
+$card-shadow-color: darken(#ededed,15%) !default;
+
+.card {
+    border-radius: $border-radius;
+    box-shadow: 2px 2px 5px $card-shadow-color;
+}

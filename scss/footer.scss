@@ -12,4 +12,8 @@ $footer_color_bg: #f2f2f2 !default;
     * {
         text-decoration: none;
     }
+
+    h2 {
+        font-size: #{$footer_font_size*1.2};
+    }
 }

@@ -4,17 +4,30 @@
 
 /* CONFIG */
 
-
-
+$tablet-width: 768px !default; 
+$desktop-width: 1024px !default;
 
 
 /* MODIFIER */
+@mixin no-tablet {
+    @media ( max-width: #{$tablet-width - 1px}) {
+      @content;
+    }
+}
+
+@mixin no-desktop {
+    @media ( max-width: #{$desktop-width - 1px}) {
+      @content;
+    }
+}
+
+
+
 
 .columns{
     display: flex;
-    margin-left: -.5rem;
-    margin-right: -.5rem;
-    margin-top: -.5rem;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 
 
     .column{
@@ -23,6 +36,7 @@
         flex-grow: 1;
         flex-shrink: 1;
         padding: .5rem;
+        box-sizing: border-box;
 
         &.is-1 {
             flex: none;
@@ -82,5 +96,29 @@
             flex: none;
             width: 100%;
         }
+
+        &.order-first{
+            order: 1;
+        }
+
+        &.order-last{
+            order: 99;
+        }
+    }
+
+    @include no-tablet {
+        &.is-tablet {
+            .column {
+                padding: 0.5rem 0;
+            }
+            .column[class*="is-"]{
+                width: 100%;
+            }
+
+            &.reverse{
+                flex-direction: column-reverse;
+            }
+        }
+        
     }
 }
