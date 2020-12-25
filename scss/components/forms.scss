@@ -1,0 +1,15 @@
+
+$border: darken(#ededed,15%) !default;
+
+textarea,
+input {
+    border: none;
+    border-bottom: 1px solid $border;
+    outline: none;
+}
+
+textarea {
+    padding-top: 1ex;
+    width: 100%;
+}
+
