@@ -92,6 +92,12 @@ h1 + h2 {
     margin-top: -1.3rem;
 }
 
+h1, h2, h3, h4, h5, h6, p{ 
+    svg {
+        height: 1em;
+    }
+}
+
 
 .is-primary {
     color: $primary;
@@ -110,7 +116,7 @@ a {
     &:hover {
         color: $link-color-hover;
     }
-}ChaoMu.23
+}
 
 
 code {
