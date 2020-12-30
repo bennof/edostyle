@@ -14,6 +14,10 @@ $fluid-gap-width: 5px;
     position: relative;
     width: auto;
     max-width: 100%;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     &.is-fluid{
         max-width: none !important;
         padding-left: $fluid-gap-width;
