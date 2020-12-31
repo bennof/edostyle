@@ -5,9 +5,20 @@
     overflow: hidden;
     
     .kg-gallery-container {
+        white-space: nowrap;
+	    font-size: 0;
+        transition: 0.8s;
+        
         .kg-gallery-row {
             .kg-gallery-image {
-                display: none;
+                font-size: 1rem;
+	            display: inline-block;
+	            white-space: normal;
+	            vertical-align: top;
+	            height: 100%;
+	            width: 100%;
+	            background: none 50% no-repeat;
+	            background-size: cover;
             }
         }
     }
