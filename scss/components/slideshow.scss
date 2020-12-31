@@ -1,4 +1,4 @@
-
+$gallery-padding: 5px !default;
 .gallery,
 .kg-gallery-card {
     position: relative;
@@ -13,8 +13,9 @@
         .gallery-row,
         .kg-gallery-row {
             display: flex;
-            flex-direction: column;
-            .gallery-image
+            flex-direction: row;
+            padding-bottom: $gallery-padding;
+            .gallery-image,
             .kg-gallery-image {
                 flex: 1;
                 font-size: 1rem;
@@ -24,7 +25,17 @@
 	            /*height: 100%;
 	            width: 100%;*/
 	            background: none 50% no-repeat;
-	            background-size: cover;
+                background-size: cover;
+                padding-left: $gallery-padding;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;  
+                }
+
+                &:first-child{
+                    padding-left: 0;
+                }
             }
         }
     }
