@@ -1,20 +1,17 @@
 .kg-bookmark-card {
     width: 100%;
     position: relative;
-}
-
-.kg-bookmark-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    color: currentColor;
-    font-family: inherit;
-    text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.kg-bookmark-container:hover {
-    text-decoration: none;
+    .kg-bookmark-container {
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        font-family: inherit;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 .kg-bookmark-content {
@@ -22,11 +19,12 @@
     flex-grow: 999;
     padding: 20px;
     order: 1;
+    .kg-bookmark-title {
+        font-weight: 600;
+    }
 }
 
-.kg-bookmark-title {
-    font-weight: 600;
-}
+
 
 .kg-bookmark-metadata,
 .kg-bookmark-description {
@@ -34,7 +32,7 @@
 }
 
 .kg-bookmark-metadata {
-    align-items: center;
+    align-items: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
