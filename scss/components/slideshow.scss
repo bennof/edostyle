@@ -1,15 +1,18 @@
 
-.gallary-slideshow,
+.gallery,
 .kg-gallery-card {
     position: relative;
     overflow: hidden;
     
+    .gallery-container
     .kg-gallery-container {
         white-space: nowrap;
-	    font-size: 0;
-        transition: 0.8s;
-        
+        display: flex;
+        flex-direction: column;
+
         .kg-gallery-row {
+            display: flex;
+            flex-direction: column;
             .kg-gallery-image {
                 font-size: 1rem;
 	            display: inline-block;
