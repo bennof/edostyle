@@ -4,15 +4,17 @@
     position: relative;
     overflow: hidden;
     
-    .gallery-container
+    .gallery-container,
     .kg-gallery-container {
         white-space: nowrap;
         display: flex;
         flex-direction: column;
 
+        .gallery-row,
         .kg-gallery-row {
             display: flex;
             flex-direction: column;
+            .gallery-image
             .kg-gallery-image {
                 flex: 1;
                 font-size: 1rem;
