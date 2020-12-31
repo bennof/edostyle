@@ -1,0 +1,14 @@
+
+.gallary-slideshow,
+.kg-gallery-card {
+    position: relative;
+    overflow: hidden;
+    
+    .kg-gallery-container {
+        .kg-gallery-row {
+            .kg-gallery-image {
+                display: none;
+            }
+        }
+    }
+}
