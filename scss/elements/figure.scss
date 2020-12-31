@@ -66,6 +66,8 @@ figure,
         content: $fig-media-name " " counter(cmedia) ": ";
     }
 
+    
+
     figcaption.table:before,
     table + figcaption:before{
         counter-increment: ctable;
