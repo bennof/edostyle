@@ -1,5 +1,5 @@
 /* 
-** Copyright 2020 Benjamin 'Benno' Falkner
+** Copyright 2020-2021 Benjamin 'Benno' Falkner
 */ 
 
 /* CONFIG */
@@ -107,7 +107,7 @@ $desktop-width: 1024px !default;
     }
 
     @include no-tablet {
-        &.is-tablet {
+        &.not-on-phone {
             .column {
                 padding: 0.5rem 0;
             }
@@ -118,7 +118,21 @@ $desktop-width: 1024px !default;
             &.reverse{
                 flex-direction: column-reverse;
             }
-        }
-        
+        }  
+    }
+
+    @include no-desktop {
+        &.not-on-tablet {
+            .column {
+                padding: 0.5rem 0;
+            }
+            .column[class*="is-"]{
+                width: 100%;
+            }
+
+            &.reverse{
+                flex-direction: column-reverse;
+            }
+        }  
     }
 }

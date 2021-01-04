@@ -1,16 +1,70 @@
 /* 
-** Copyright 2020 Benjamin 'Benno' Falkner
+** Copyright 2020-2021 Benjamin 'Benno' Falkner
 */ 
 
 /* CONFIG */ 
-$hero-color: #ededed !default;
-$hero-primary-color: #c00000 !default;
-$hero-secondary-color: #35393C !default;
-
+$border-radius: 3px !default;
+$primary: #25c42d !default;
+$secondary: #0f61a0 !default;
 $font-color: #35393C !default;
-$font-color-inverse: #fff !default;
+
+$hero-border-radius: 3px !default;
+$hero-color: $primary !default;
+$hero-font-color: #eee !default;
+$hero-font-color-dark: $font-color !default;
+
 
 .hero {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-position: center;
+    background-size: cover;
+    background-color: $hero-color;
+    padding: 10px;
+    box-sizing: border-box;
+    color: $hero-font-color;
+    &.darken-font{
+        color: $hero-font-color-dark;
+    }
+    &.has-free-head{
+        padding-top: 4rem;
+    }
+    &.has-height-33 {
+        min-height: 33vh;
+    }
+    &.has-height-50 {
+        min-height: 50vh;
+    }
+
+    * {
+        position: relative;
+        z-index: 50;
+    }
+
+    .media-layer {
+        position: absolute;
+        z-index: 20;
+        right: 0;
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+    }
+
+    .darken-bg {
+        background-color: rgba(0,0,0,0.5);
+        border-radius: $hero-border-radius;
+    }
+    .whiten-bg {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: $hero-border-radius;
+    }
+}
+
+.hero2 {
     flex-grow: 1;
     margin: 0 auto;
     position: relative;

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edoStyle Example</title>
+    <link rel="stylesheet" href="../edo.css" />
+
+    <!-- MathJAX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- ChartJS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="chart_helper.js"></script>
+</head>
+<body class="has-menubar">
+    <!-- Menu -->
+    <header id="header" class="header">
+        <div class="navbar navbar-center">
+            <a class="logo" href="#null">
+                <h1 class="is-primary logo">edoStyle</h1>
+            </a>
+            <label for="menu_switch" class="menu">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none"  stroke-width="4" stroke-linecap="round"  >
+                        <path  d="M 4,8 L 28,8" />
+                        <path  d="M 4,16 L 28,16" />
+                        <path  d="M 4,24 L 28,24" />
+                    </g>
+                </svg>
+            </label>
+            <input type="checkbox" id="menu_switch" class="menu" />
+            <ul class="menu">
+                <!-- Menu Elements-->
+                <li><a href="#hero">Hero</a></li>
+                <li><a href="#cards">Cards</a></li>
+                <li><a href="#footer">Footer</a></li>
+            </ul> 
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <div id="hero" class="container">
+        <div class="content">
+            <div class="hero has-height-50 has-free-head" style="background-image: url('https://source.unsplash.com/1600x800/?garden');">
+                <!-- back to main content area -->
+                <div class="content columns">
+                    <div class="column is-4"></div>
+                    <div class="column is-8 darken-bg">
+                        <h1 class="is-primary">edoStyle</h1>
+                        <h2>Hero Title</h2>
+                        <p>Supports video (i.e. from w3schools.com)....</p>
+                    </div>
+                </div>
+                <!-- background media -->
+                <video class="media-layer" autoplay muted loop id="myVideo">
+                    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <p><a href="#null">SCSS Design</a></p>
+            <h1 class="is-primary">edoStyle Concept</h1>
+            <h4 class="">
+                <a href="#null">Bennof</a> |
+                <small>
+                    <time class="byline-meta-date" datetime="2020-12-25">25 Dez. 2020</time>
+                    <span class="byline-reading-time"><span class="bull">•</span> 20 min read</span>
+                </small>
+            </h4>
+            <p><em>edoStyle is a simple scss library for web pages</em></p>
+        </div>
+        <div class="content">
+            <h2>Getting Started ... </h2>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+            <h2>Basic Layout</h2>
+
+            <h2>Elements</h2>
+            <h3>Images</h3>
+            <p><em>All images are taken from unsplash.com</em></p>
+            <figure>
+                <img src="https://source.unsplash.com/400x400/?desert" />
+                <figcaption>Desert Scene</figcaption>
+            </figure>
+
+            <figure class="fig-fill-width">
+                <img src="https://source.unsplash.com/1200x600/?winter" />
+                <figcaption>Winter Scene (fill-width)</figcaption>
+            </figure>
+
+            <figure class="fig-full-width">
+                <img src="https://source.unsplash.com/1600x800/?ocean" />
+                <figcaption>Ocean Scene (fill-width)</figcaption>
+            </figure>
+
+            <h3>Grid Layout</h3>
+
+            <h2>Components</h2>
+            <h3>Cards</h3>
+            <h3>Hero Element</h3>
+            <h3>Menu Bar</h3>
+
+            <h2>Helpers</h2>
+
+            <h3>MathJAX</h3>
+            <p>Using MathJAX inline: \(f(x,y)=\frac{1}{x^2+y^2}\) or as block</p>
+            \[E(r)=\gamma\cdot\frac{1}{r}\]
+
+            <h3>ChartJS</h3>
+            <p>CharJs is used with a wrapper.</p>
+            <script>
+                var plot = new Plot("Test Chart");
+                plot.x( ['January', 'February', 'March', 'April', 'May', 'June', 'July']);
+                plot.fline([0, 10, 5, 2, 20, 30, 45],'Sample Data','#33aa44','#AAA');
+                plot.draw();
+            </script>
+            <pre><code>var plot = new Plot("Test Chart");
+plot.x( ['January', 'February', 'March', 'April', 'May', 'June', 'July']);
+plot.fline([0, 10, 5, 2, 20, 30, 45],'Sample Data','#33aa44','#AAA');
+plot.draw();</code></pre>
+        </div>
+
+        <!-- Author Info -->
+        <div class="content columns">
+            <div class="column is-12">
+                <h3>Author(s):</h3>
+            </div>
+                <div class="column is-1">
+                        <img src="https://source.unsplash.com/64x64/?face" alt="Face">
+                </div>
+                <div class="column is-11">
+                    <h4>Benjamin 'Benno' Falkner</h4>
+                        <p>Info about the author.</p>
+                        <p><a href="#null">More posts</a> by Benjamin 'Benno' Falkner.</p>
+                </div>
+        </div>
+    </div>
+
+
+    <!-- Overview -->
+    <div class="container">
+        <div class="content">
+            <h1 class="is-primary">Index:</h1>
+        </div>
+        <div id="cards" class="content columns not-on-phone">
+            <!-- Left Column -->
+            <div class="column is-4 card"> 
+                <img src="https://source.unsplash.com/300x240/?nature" />
+                <h1 class="is-primary is-title">Nature</h1> 
+                <p><time datetime="2020-12-25">25 Dez. 2020</time>, <a href="#null">Author</a></p> 
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+                <a href="#" class="button is-primary">More ...</a>
+            </div>
+            <!-- Right Column -->
+            <div class="column is-4 card"> 
+                <img src="https://source.unsplash.com/300x240/?minimal" />
+                <h1 class="is-primary is-title">Simple</h1> 
+                <p><time datetime="2020-12-25">25 Dez. 2020</time>, <a href="#null">Author</a></p> 
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+                <a href="#" class="button is-primary">More ...</a>
+            </div>
+            <div class="column is-4 card"> 
+                <img src="https://source.unsplash.com/300x240/?agile" />
+                <h1 class="is-primary is-title">Agile</h1> 
+                <p><time datetime="2020-12-25">25 Dez. 2020</time>, <a href="#null">Author</a></p> 
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+                <a href="#" class="button is-primary">More ...</a>
+            </div>
+        </div>
+        <div class="content">
+            <nav class="pagination" role="navigation">
+                <span class="page-number">Page 1 of 2</span>
+                <a class="button is-primary" href="#null">Next →</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="content">
+            <div class="columns">
+                <div class="column id-6">
+                    <p>Copyright &copy; 2020-2021 <a href="contact@edo365.de">Benjamin 'Benno' Falkner</a></p>
+                    <p><a href="https://opensource.org/licenses/MIT">MIT License</a></p>
+                </div> 
+                <div class="column id-6 align-right">
+                    <p><a href="https://github.com/bennof/edostyle">GitHub</a></p>
+                    <p></p>
+                </div> 
+            </div>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
