@@ -12,7 +12,7 @@
 
     <!-- ChartJS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="chart_helper.js"></script>
+    <script src="plot.js"></script>
 </head>
 <body class="has-menubar">
     <!-- Menu -->
@@ -118,12 +118,12 @@
             <script>
                 var plot = new Plot("Test Chart");
                 plot.x( ['January', 'February', 'March', 'April', 'May', 'June', 'July']);
-                plot.fline([0, 10, 5, 2, 20, 30, 45],'Sample Data','#33aa44','#AAA');
+                plot.fline([0, 10, 5, 2, 20, 30, 45],'Sample Data','#425672','#AAA');
                 plot.draw();
             </script>
             <pre><code>var plot = new Plot("Test Chart");
 plot.x( ['January', 'February', 'March', 'April', 'May', 'June', 'July']);
-plot.fline([0, 10, 5, 2, 20, 30, 45],'Sample Data','#33aa44','#AAA');
+plot.fline([0, 10, 5, 2, 20, 30, 45],'Sample Data','#425672','#AAA');
 plot.draw();</code></pre>
         </div>
 
@@ -175,9 +175,10 @@ plot.draw();</code></pre>
             </div>
         </div>
         <div class="content">
-            <nav class="pagination" role="navigation">
-                <span class="page-number">Page 1 of 2</span>
-                <a class="button is-primary" href="#null">Next →</a>
+            <nav class="pagination clear" role="navigation">
+                <a class="button is-primary is-left is-small" href="#null">← Prev</a>
+                <span class="page-number is-center">Page 1 of 2</span>
+                <a class="button is-primary is-right is-small" href="#null">Next →</a>
             </nav>
         </div>
     </div>

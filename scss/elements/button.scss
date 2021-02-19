@@ -4,8 +4,8 @@
 
 /* CONFIG */
 $button-color: #ededed !default;
-$button-primary-color: #25c42d !default;
-$button-secondary-color: #0f61a0 !default;
+$button-primary-color: $primary !default;
+$button-secondary-color: $secondary !default;
 
 $font-color: #35393C !default;
 $font-color-inverse: #fff !default;
@@ -31,6 +31,10 @@ button {
 
     &:hover{
         background-color: transparent;
+    }
+
+    &.is-small {
+        padding: 0.3em 1em;
     }
     
     &.is-primary{

@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 /* CONFIG */
-$primary: #25c42d !default;
+$primary: #425672 !default;
 $secondary: #0f61a0 !default;
 
 $background: #fff !default;
@@ -241,4 +241,23 @@ ul {
 
 .align-right {
     text-align: right;
+}
+
+.is-left { 
+    display: inline-block;
+    float: left;
+}
+
+.is-right {
+    display: inline-block;
+    float: right;
+}
+
+.is-center {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.clear::after {
+    clear:both;
 }

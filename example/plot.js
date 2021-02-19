@@ -112,7 +112,7 @@ Plot.prototype.x = function(data){
     this.data.labels = data;
 };
 
-Plot.prototype.points = function(data, label, color = "#af5431") {
+Plot.prototype.points = function(data, label, color = "#425672") {
     if(label == undefined) label = "Plot "+this.data.datasets.length;
     this.data.datasets.push({
         type: 'line',
@@ -124,7 +124,7 @@ Plot.prototype.points = function(data, label, color = "#af5431") {
     });
 };
 
-Plot.prototype.line = function(data, label, color = "#af5431") {
+Plot.prototype.line = function(data, label, color = "#425672") {
     if(label == undefined) label = "Plot "+this.data.datasets.length;
     this.data.datasets.push({
         type: 'line',
@@ -135,7 +135,7 @@ Plot.prototype.line = function(data, label, color = "#af5431") {
     });
 };   
 
-Plot.prototype.fline = function(data, label, color="#af5431", fcolor = "#c45850") {
+Plot.prototype.fline = function(data, label, color="#425672", fcolor = "#c45850") {
     if(label == undefined) label = "Plot "+this.data.datasets.length;
     this.data.datasets.push({
         type: 'line',
@@ -147,7 +147,7 @@ Plot.prototype.fline = function(data, label, color="#af5431", fcolor = "#c45850"
     });
 };
 
-Plot.prototype.bar = function(data, label, color="#af5431", fcolor = "#c45850") {
+Plot.prototype.bar = function(data, label, color="#425672", fcolor = "#c45850") {
     if(label == undefined) label = "Plot "+this.data.datasets.length;
     this.data.datasets.push({
         type: 'bar',

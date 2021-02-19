@@ -2,6 +2,7 @@ $header_bg_color: $background !default;
 $header_bg_color_hl: #222 !default;
 $header_color: #eee !default;
 $header_color_hl: $primary !default;
+$header_color_shadow: $font-color !default;
 
 $header_height: 40px !default;
 $header_height_inner: #{$header_height - 10px} !default;
@@ -78,6 +79,7 @@ $navbar-width: $full-width !default;
 
     & input[type=checkbox].menu:checked ~ ul.menu {
         display: inline-block;
+        box-shadow: 3px 3px 3px rgba($header_color_shadow, 0.5);
     }
 
     & ul.menu {
