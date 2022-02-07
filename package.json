@@ -1,25 +1,20 @@
 {
   "name": "edostyle",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Minimal Edo style",
-  "main": "edo.sass",
+  "main": "edostyle.min.css",
   "scripts": {
-    "build": "npm run build-scss && npm run build-autoprefix && npm run build-cleancss",
-    "build-scss": "node-sass --output-style expanded --source-map true edo.scss edo.css",
-    "build-autoprefix": "postcss --use autoprefixer --output edo.css edo.css",
-    "build-cleancss": "cleancss -o edo.min.css edo.css",
-    "clean": "rimraf *.css "
+    "build": "npm run build-scss && npm run build-esbuild",
+    "build-scss": "sass  ./scss/edostyle.scss ./edostyle.css --source-map",
+    "build-esbuild": "esbuild --minify --bundle edostyle.css --outfile=edostyle.min.css",
+    "clean": "rm -f *.css *.css.map"
   },
   "author": {
     "name": "Benjamin 'Benno' Falkner"
   },
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^10.1.0",
-    "clean-css-cli": "^4.3.0",
-    "node-sass": "^5.0.0",
-    "postcss": "^8.2.1",
-    "postcss-cli": "^8.3.1",
-    "rimraf": "^3.0.2"
+    "esbuild": "^0.14.20",
+    "sass": "^1.49.7"
   }
 }

@@ -1,0 +1,12 @@
+.footer {
+    --footer-font-color: #35393C;
+    --footer-background: #f2f2f2;
+    padding: 10px 0;
+    font-size: smaller;
+    color: var(--footer-font-color);
+    background-color: var(--footer-background);
+}
+
+.footer * {
+    text-decoration: none;
+}

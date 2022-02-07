@@ -21,6 +21,7 @@
 */
 
 
+// Register Plugins
 if(Chart){
     const xMarkerPlugin = {
         get_x_pos: function (chart, idx) {
@@ -84,124 +85,121 @@ if(Chart){
 
     Chart.plugins.register(xMarkerPlugin);
     Chart.plugins.register(yMarkerPlugin);
+} else {
+    console.error("Chart.js is missing, please load i.e.: https://cdn.jsdelivr.net/npm/chart.js");
 }
 
-var Plot = function(name, args){
-    this.name = name;
-    this.data = {
-        labels: [],
-        datasets: [],
+
+class Plot {
+    constructor (name, args){
+        this.name = name;
+        this.data = {
+            labels: [],
+            datasets: [],
+        };
+    
+        this.xmarker = [];
+        this.ymarker = [];
+    
+        this.args = args;
+    }
+
+    clear(){
+        if(this.chart){
+            this.chart.destroy();
+        }
+        this.data.datasets = [];
+        this.xmarker = [];
+        this.ymarker = [];
+    }
+
+    x(data){
+        this.data.labels = data;
+    }
+
+    points(data, label, color = "#425672") {
+        if(label == undefined) label = "Plot "+this.data.datasets.length;
+        this.data.datasets.push({
+            type: 'line',
+            showLine: false,
+            label: label,
+            data: data,
+            borderColor: color,
+            fill: false,
+        });
+    }
+    
+    line(data, label, color = "#425672") {
+        if(label == undefined) label = "Plot "+this.data.datasets.length;
+        this.data.datasets.push({
+            type: 'line',
+            label: label,
+            data: data,
+            borderColor: color,
+            fill: false,
+        });
+    };   
+    
+    fline(data, label, color="#425672", fcolor = "#c45850") {
+        if(label == undefined) label = "Plot "+this.data.datasets.length;
+        this.data.datasets.push({
+            type: 'line',
+            label: label,
+            data: data,
+            color: fcolor,
+            borderColor: color,
+            fill: true,
+        });
+    };
+    
+    bar(data, label, color="#425672", fcolor = "#c45850") {
+        if(label == undefined) label = "Plot "+this.data.datasets.length;
+        this.data.datasets.push({
+            type: 'bar',
+            label: label,
+            data: data,
+            color: fcolor,
+            borderColor: color,
+            fill: true,
+        });
     };
 
-    this.xmarker = [];
-    this.ymarker = [];
-
-    this.args = args;
-};
-
-Plot.prototype.clear = function(){
-    if(this.chart){
-        this.chart.destroy();
+    draw(target=null) {
+        if (target==null){
+            //console.log('Create Canvas');
+            var elem = document.createElement("canvas");
+            var cur = document.currentScript;
+            cur.parentElement.insertBefore(elem,cur);
+            target = elem;
+        } else if (typeof target === 'string' || target instanceof String) {
+            //console.log('Get Canvas');
+            target = document.querySelector(target);
+        }
+        if(!(target instanceof HTMLCanvasElement)){
+           console.error("ERROR: No Canvaselement");
+           return null; 
+        }
+        this.target = target;
+    
+        var ctx = target.getContext('2d');
+        this.chart = new Chart(ctx,{
+            type: 'line',
+            data: this.data,
+            options: { 
+                responsive: true,
+                maintainAspectRatio: true
+            },
+            xMarker: this.xmarker,
+            yMarker: this.ymarker
+        });
+        return this.chart;
+    };
+    
+    x_marker(idx, title, color = "#c45850") {
+        this.xmarker.push({ idx: idx, title: title, color: color });
     }
-    this.data.datasets = [];
-    this.xmarker = [];
-    this.ymarker = [];
+    
+    y_marker(value, title, color = "#c45850") {
+        this.ymarker.push({ value: value, title: title, color: color });
+    }
 }
-
-Plot.prototype.x = function(data){
-    this.data.labels = data;
-};
-
-Plot.prototype.points = function(data, label, color = "#425672") {
-    if(label == undefined) label = "Plot "+this.data.datasets.length;
-    this.data.datasets.push({
-        type: 'line',
-        showLine: false,
-        label: label,
-        data: data,
-        borderColor: color,
-        fill: false,
-    });
-};
-
-Plot.prototype.line = function(data, label, color = "#425672") {
-    if(label == undefined) label = "Plot "+this.data.datasets.length;
-    this.data.datasets.push({
-        type: 'line',
-        label: label,
-        data: data,
-        borderColor: color,
-        fill: false,
-    });
-};   
-
-Plot.prototype.fline = function(data, label, color="#425672", fcolor = "#c45850") {
-    if(label == undefined) label = "Plot "+this.data.datasets.length;
-    this.data.datasets.push({
-        type: 'line',
-        label: label,
-        data: data,
-        color: fcolor,
-        borderColor: color,
-        fill: true,
-    });
-};
-
-Plot.prototype.bar = function(data, label, color="#425672", fcolor = "#c45850") {
-    if(label == undefined) label = "Plot "+this.data.datasets.length;
-    this.data.datasets.push({
-        type: 'bar',
-        label: label,
-        data: data,
-        color: fcolor,
-        borderColor: color,
-        fill: true,
-    });
-};
-
-Plot.prototype.draw = function(target=null) {
-    if (target==null){
-        //console.log('Create Canvas');
-        var elem = document.createElement("canvas");
-        var cur = document.currentScript;
-        cur.parentElement.insertBefore(elem,cur);
-        target = elem;
-    } else if (typeof target === 'string' || target instanceof String) {
-        //console.log('Get Canvas');
-        target = document.querySelector(target);
-    }
-    if(!(target instanceof HTMLCanvasElement)){
-       console.error("ERROR: No Canvaselement");
-       return null; 
-    }
-    this.target = target;
-
-    var ctx = target.getContext('2d');
-    this.chart = new Chart(ctx,{
-        type: 'line',
-        data: this.data,
-        options: { 
-            responsive: true,
-            maintainAspectRatio: true
-        },
-        xMarker: this.xmarker,
-        yMarker: this.ymarker
-    });
-    return this.chart;
-};
-
-Plot.prototype.x_marker = function(idx, title, color = "#c45850") {
-    this.xmarker.push({
-        idx: idx, 
-        title: title, 
-        color: color 
-    });
-};
-
-Plot.prototype.y_marker = function(value, title, color = "#c45850") {
-    this.ymarker.push({
-        value: value, 
-        title: title, 
-        color: color 
-    });
-};

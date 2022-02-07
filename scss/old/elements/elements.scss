@@ -1,0 +1,195 @@
+:root {
+    --full-width: 900px;
+    --border-radius: 3px;
+    --border-color: #c4c4c4;
+    --font-color: #35393C;
+    --box-shadow: 2px 2px 5px #000;
+    --primary: #425672;
+    --primary-font-color: #fff;
+    --secondary: #0f61a0;
+    --secondary-font-color: #fff;
+    --color-background: #fff;
+    --fig-code-name: "Listing ";
+    --fig-quote-name: "Quote ";
+    --fig-figure-name: "Figure ";
+    --fig-media-name: "Media ";
+    --fig-table-name: "Table ";
+}
+
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    &.is-fluid{
+        max-width: none !important;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+    }
+}
+
+.content {
+    max-width: var(--full-width);
+    padding: 0px 0px 10px;
+    margin: 0px auto 5px;
+
+    p, h1,h2,h3,h4,h5,h6 {
+        padding: 0 0.5rem;
+    }
+}
+
+.card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+
+/* cite */
+a.ref {
+    vertical-align: top;
+    font-size: xx-small;
+    &::before{
+        vertical-align: top;
+        font-size: xx-small;
+        content: "[";
+    }
+    &::after{
+        vertical-align: top;
+        font-size: xx-small;
+        content: "]";
+    }
+}
+
+.bibliography {
+    &::before{
+        display: block;
+        font-size: larger;
+        content: "Bibliography";
+    }
+    counter-reset: ccite;
+    cite {
+        font-size: small;
+        font-style: normal;
+        &::before{
+            vertical-align: top;
+            font-size: xx-small;
+            color: var(--primary);
+            counter-increment: ccite;
+            content: "[" counter(ccite) "] ";
+        }
+    }
+}
+
+/* figure */
+body {
+    counter-reset: ctable cquote ccode cimage cmedia;
+}
+
+figure {
+    margin: 0px;
+    text-align: center;
+
+    figcaption {
+        font-size: smaller;
+        &::before {
+            font-weight: bold; 
+        }
+        padding-bottom: 2em;
+    }
+
+    figcaption.img:before,
+    img + figcaption:before{
+        counter-increment: cimage;
+        content: var(--fig-figure-name) " " counter(cimage) ": ";
+    }
+    
+    figcaption.quote:before,
+    blockquote + figcaption:before{
+        counter-increment: cquote;
+        content: var(--fig-quote-name) " " counter(cquote) ": ";
+    }
+    
+    figcaption.code:before,
+    pre + figcaption:before{
+        counter-increment: ccode;
+        content: var(--fig-code-name) " " counter(ccode) ": ";
+    }
+    
+    figcaption.media:before,
+    iframe + figcaption:before{
+        counter-increment: cmedia;
+        content: var(--fig-media-name) " " counter(cmedia) ": ";
+    }
+
+    figcaption.table:before,
+    table + figcaption:before{
+        counter-increment: ctable;
+        content: var(--fig-table-name) " " counter(ctable) ": ";
+    }
+}
+
+.fig-fill-width {
+    width: 100%;
+}
+  
+
+.fig-full-width {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Button */
+.button,
+button {
+    display: inline-block;
+    color: var(--font-color);
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    transition: all .25s;
+    padding: 0.7em 2.5em;
+    border-radius: .3em;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    margin-right: 1rem;
+    text-decoration: none!important;
+
+    &:hover{
+        background-color: transparent;
+    }
+
+    &.is-small {
+        padding: 0.3em 1em;
+    }
+    
+    &.is-primary{
+        background-color: var(--primary);
+        color: var(--primary-font-color);
+        border: 1px solid var(--primary);
+        &:hover{
+            background-color: transparent;
+            color: var(--font-color);
+        }
+    }
+    &.is-secondary{
+        background-color: var(--secondary);
+        color: var(--secondary-font-color);
+        border: 1px solid var(--secondary);
+        &:hover{
+            background-color: transparent;
+            color: var(--font-color);
+        }
+    }
+}

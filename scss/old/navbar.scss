@@ -1,74 +1,66 @@
-$header_bg_color: $background !default;
-$header_bg_color_hl: #222 !default;
-$header_color: #eee !default;
-$header_color_hl: $primary !default;
-$header_color_shadow: $font-color !default;
-
-$header_height: 40px !default;
-$header_height_inner: #{$header_height - 10px} !default;
-
-$header_font_size: 12pt !default;
-$header_font_weight: 300 !default;
-
-$navbar-width: $full-width !default;
 
 .header {
+    --header-background: #fff;
+    --header-height: 40px;
+    --header-color: #35393C;
+    --font-size: 12pt;
+    --border-color: #ededed;
+    --navbar-width: 1024px;
+    --primary: #425672;
+    --boxshadow: 3px 3px 3px rgba(#35393C, 0.5);
+    
     position: fixed;
-    background-color: $header_bg_color;
+    background-color: var(--header-background);
     top: 0px;
     vertical-align: middle;
-    line-height: $header_height;
-    height: $header_height;
+    line-height: var(--header-height);
+    height: var(--header-height);
     left: 0px;
     width: 100vw;
     z-index:500;
-    font-size: $header_font_size;
-    border-bottom: 1px solid $border;
-
+    font-size: var(--font-size);
+    border-bottom: 1px solid var(--border-color);
     transition: all .25s;
+}
 
-    .admin-bar &,
-    #wpadminbar ~ &{
-        top: 32px;
-    }
+.header {
 
     .navbar {
         width: 100%;
         height:100%;
         top: 0;
         position: relative;
-    }
-
-    .navbar-center{
-        max-width: $navbar-width;
-        margin: 0px auto;
+        &.center{
+            max-width: var(--navbar-width);
+            margin: 0px auto;
+        }
     }
 
     & h1,
     &  > * {
         display: block;
         vertical-align: middle;
-        height: $header_height;
-        line-height: $header_height;
+        height: var(--header-height);
+        line-height: var(--header-height);
         margin: 0px;
-        font-size: $header_font_size;
+        font-size: var(--font-size);
     }
 
     &  .logo {
         margin-left: 5px;
         float: left;
-        color: $header_color_hl;
+        color: var(--header-color);
         transition: all .25s;
 
         &:hover {
-            color: lighten($header_color_hl, 20);
+            color: var(--primary);
         }
     }
 
     & label.menu {
         float: right;
         cursor: pointer;
-        color: $header_color_hl;
+        color: var(--primary);
         margin-right: 10px;
         vertical-align: super;
     }
@@ -79,7 +71,7 @@ $navbar-width: $full-width !default;
 
     & input[type=checkbox].menu:checked ~ ul.menu {
         display: inline-block;
-        box-shadow: 3px 3px 3px rgba($header_color_shadow, 0.5);
+        box-shadow: var(--box-shadow);
     }
 
     & ul.menu {
@@ -87,18 +79,17 @@ $navbar-width: $full-width !default;
         height: auto;
         display: none;
         position: absolute;
-        top: $header_height;
+        top: var(--header-height);
         padding: 0;
-        /*max-height: calc(100% - #{$header_height});*/
         max-width: 100%;
         margin: 0;
         min-width: 150px;
         overflow: auto;
         z-index:800;
-        background: rgba($header_bg_color, 1.0);
+        background: var(--header-background);
         right: 0px;
         border-radius: 2px;
-        border-left: 1px solid  $border;
+        border-left: 1px solid var(--border-color);
     
         & > li {
             display: block;
@@ -112,7 +103,7 @@ $navbar-width: $full-width !default;
             form.search, a {
                 display: block;
                 padding:  5px 0px 5px 20px;
-                color: $font-color;
+                color: var(--font-color);
                 text-decoration: none;
                 /*width: 100%;*/
                 background: none;
@@ -123,21 +114,21 @@ $navbar-width: $full-width !default;
                 input{
                     border: none;
                     background: none;
-                    height: $header_height_inner;
+                    height: calc(var(--header-height) - 10px);
                     padding: 0;
                     margin :0;
                     outline: 0;
-                    font-size: $header_font_size;
-                    color: $header_color;
+                    font-size: var(--font-size);
+                    color: var(--footer-font-color);
                 }
                 
                 input[type=text]{
-                    border-bottom: 1px solid $header_color;
+                    border-bottom: 1px solid var(--header-color);
                 }
             }
             
             a:hover {
-                color: $header_color_hl;
+                color: var(--primary);
                 text-decoration: underline;
             }
 
@@ -149,13 +140,13 @@ $navbar-width: $full-width !default;
                 height: 0; 
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
-                border-top: 5px solid $primary;
+                border-top: 5px solid var(--primary);
                 border-bottom: 5px solid transparent;
             }
 
             &.menu-item-has-children:hover > a::after {
                 border-top: 5px solid transparent;
-                border-bottom: 5px solid $primary;
+                border-bottom: 5px solid var(--primary);
                 top: -0.6rem;
             }
 
@@ -181,11 +172,11 @@ $navbar-width: $full-width !default;
     }
 
     img, svg {
-        stroke: $header_color_hl;
-        height: $header_height_inner;
+        stroke: var(--primary);
+        height: calc(var(--header-height) - 10px);
         vertical-align: middle;
         &:hover {
-            stroke: lighten($header_color_hl, 20);
+            stroke: var(--primary);
         }
     }
 
@@ -194,10 +185,7 @@ $navbar-width: $full-width !default;
     }
 }
 
-.has-menubar {
-    margin-top: $header_height;
-}
 
-.admin-bar.has-menubar {
-    margin-top: $header_height;
+.has-menubar {
+    margin-top: var(--header-height);
 }

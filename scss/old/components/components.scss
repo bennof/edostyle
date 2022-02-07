@@ -1,0 +1,75 @@
+:root {
+    --primary: #425672;
+    --color-background: #fff;
+    --hero-font-color: #fff;
+    --font-color: #35393C;
+    --hero-radius: 3px;
+}
+
+/* rotating loader */
+.loader {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 5px solid var(--color-background);
+    border-top: 5px solid var(--primary);
+    animation: loader 1.2s linear infinite;
+}
+
+@keyframes loader {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* hero */
+.hero {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-position: center;
+    background-size: cover;
+    background-color: var(--primary);
+    padding: 10px;
+    box-sizing: border-box;
+
+    &.has-free-head{
+        padding-top: 4rem;
+    }
+    &.has-height-33 {
+        min-height: 33vh;
+    }
+    &.has-height-50 {
+        min-height: 50vh;
+    }
+
+    * {
+        position: relative;
+        z-index: 50;
+    }
+
+    .media-layer {
+        position: absolute;
+        z-index: 20;
+        right: 0;
+        bottom: 0;
+        min-width: 100%; 
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .darken-bg {
+        background-color: rgba(0,0,0,0.5);
+        border-radius: var(--hero-radius);
+        color: var(--hero-font-color);
+    }
+    .whiten-bg {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: var(--hero-radius);
+        color: var(--font-color);
+    }
+}
